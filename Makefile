@@ -3,22 +3,29 @@
 # Default target when running just `make`
 .DEFAULT_GOAL := check-all
 
-sync:          ## Sync virtual environment and lockfile with uv
+# Sync virtual environment and lockfile with uv
+sync:
 	uv sync
 
-format:        ## Format codebase automatically using ruff
+# Format codebase automatically using ruff
+format:
 	uv run ruff format .
 
-lint:          ## Run ruff linter with automatic fixes
+# Run ruff linter with automatic fixes
+lint:
 	uv run ruff check --fix .
 
-typecheck:     ## Run strict mypy static type analysis
+# Run strict mypy static type analysis
+typecheck:
 	uv run mypy src/
 
-test:          ## Run all tests across the src/ directory
+# Run all tests across the src/ directory
+test:         
 	uv run pytest src/
 
-check-all: format lint typecheck test ## Run full code quality pipeline
+# Run full code quality pipeline
+check-all: format lint typecheck test
 
-clean:         ## Clean up cache files and build artifacts
+# Clean up cache files and build artifacts
+clean:
 	rm -rf .venv .mypy_cache .ruff_cache .pytest_cache *.egg-info build dist
