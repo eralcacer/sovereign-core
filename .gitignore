@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# Tool Caches
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Sovereign Engine Local Runtime
+.trees/
+~/.sovereign/
+sovereign.db
